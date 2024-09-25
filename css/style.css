@@ -1,0 +1,895 @@
+/* 課題サイト */
+/* https://code-jump.com/blog-layout/ */
+/* 所要時間：3日 */
+
+@charset "utf-8";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: 14px;
+  color: #535353;
+  margin: 0 auto;
+  padding: 0 auto;
+  background-color: #fff;
+  font-family: "Noto Sans", sans-serif;
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+p,
+a,
+img {
+  margin: 0;
+}
+
+h1 {
+  font-size: 24px;
+}
+
+h2 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 16px;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #535353;
+  cursor: pointer;
+}
+
+img {
+  max-width: 1200px;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+img:hover {
+  opacity:0.7;
+	transition:0.5s;
+}
+
+.logo-img img:hover, .profile img:hover {
+  opacity: 1;
+}
+
+/* ローダー */
+
+.loader-container h1 {
+  animation: loadingText 2s linear infinite;
+  color: #585858;
+}
+
+@keyframes loadingText {
+  0% {
+    color: #585858;
+  }
+  50% {
+    color: #919191;
+  }
+  100% {
+    color: #585858;
+  }
+}
+
+.three { width: 23.8%; }
+
+.loader-container{
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: 100;
+  background-color: #f4f4f4;
+  transition: all .4s;
+}
+
+.loader-container.loaded {
+  opacity: 0;
+}
+
+.content {
+  /* display: none; */
+  opacity: 0;
+  transition: all .4s;
+  transition-delay: .4s;
+}
+
+.three{
+  padding-bottom: 40px;
+}
+
+.loader{
+  border-radius: 100%;
+  margin: 0 auto;
+}
+
+#loader-6{
+  top: 40px;
+  left: -2.5px;
+}
+
+#loader-6 span{
+  display: inline-block;
+  width: 5px;
+  height: 20px;
+  background-color: #32a1c2;
+}
+
+#loader-6 span:nth-child(1){
+  animation: grow 1s ease-in-out infinite;
+}
+
+#loader-6 span:nth-child(2){
+  animation: grow 1s ease-in-out 0.15s infinite;
+}
+
+#loader-6 span:nth-child(3){
+  animation: grow 1s ease-in-out 0.30s infinite;
+}
+
+#loader-6 span:nth-child(4){
+  animation: grow 1s ease-in-out 0.45s infinite;
+}
+
+@keyframes grow{
+  0%, 100%{
+    -webkit-transform: scaleY(1);
+    -ms-transform: scaleY(1);
+    -o-transform: scaleY(1);
+    transform: scaleY(1);
+  }
+
+  50%{
+    -webkit-transform: scaleY(1.8);
+    -ms-transform: scaleY(1.8);
+    -o-transform: scaleY(1.8);
+    transform: scaleY(1.8);
+  }
+}
+
+/* ヘッダー */
+
+.header-content {
+  position: fixed;
+  height: 70px;
+  background-color: #fff;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 3;
+}
+
+.logo-area {
+  width: 1168px;
+}
+
+.logo-img {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-top: 3px;
+  left: auto;
+  right: auto;
+  padding-left: 0px;
+  padding-right: 16px;
+  transition: all .7s ease;
+}
+
+/* グローバルメニュー */
+/* .menu-area {
+  width: 100%;
+  background-color: #535353;
+  height: 39px;
+  position: fixed;
+  top: 70px;
+  display: flex;
+  justify-content: center;
+  z-index: 3;
+}
+
+.menu-area ul {
+  width: 1168px;
+  max-width: 1168px;
+  height: 39px;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 16px;
+  padding-right: 16px;
+  display: flex;
+  margin-left: 4px;
+}
+
+.menu-area li {
+  padding: 10px 60px 10px 0px;
+}
+
+.menu-area ul li a {
+  color: #fff;
+} */
+
+/* ドロップダウンメニュー（Mega Menu） */
+.menu-area-drop {
+  width: 100%;
+  background-color: #535353;
+  height: 39px;
+  position: fixed;
+  top: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+}
+
+.dropdown-menu {
+  width: 1168px;
+  max-width: 1168px;
+  height: 39px;
+  display: flex;
+  justify-content: flex-start;
+  list-style-type: none;
+  color: #fff;
+  padding: 0;
+}
+
+.dropmenu {
+  position: relative;
+}
+
+.dropmenu1 {
+  width: 101.5px;
+}
+.dropmenu2 {
+  width: 130.3px;
+}
+.dropmenu3 {
+  width: 114.5px;
+}
+.dropmenu4 {
+  width: 100.3px;
+}
+.dropmenu5 {
+  width: 110.25px;
+}
+.dropmenu-content4:hover {
+  background-color: #757575;
+}
+.dropmenu-content5:hover {
+  background-color: #757575;
+}
+
+.dropmenu-content {
+  top: 0;
+  left: 0;
+  position: absolute;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  /* padding-left: 5px; */
+  width: 100%;
+}
+
+.menuSub {
+  position: absolute;
+  top: 39px;
+  left: 0;
+  display: none;
+  width: 100%;
+  padding: 0;
+  background-color: #535353;
+}
+
+.menuSub a {
+  /* border-top: 1px solid #fff; */
+  display: block;
+  width: 100%;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.menuSub li {
+  padding: 0;
+  padding-left: 10px;
+}
+
+
+.menuSub a:hover {
+  background: #757575;
+}
+
+/* メイン */
+main {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  min-width: fit-content;
+}
+
+.main-area {
+  width: 1200px;
+  max-width: 1200px;
+  margin-bottom: 60px;
+}
+
+/* ピックアップ */
+
+.pickup-area {
+  width: 1168px;
+  max-width: 1168px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 150px;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-bottom: 60px;
+  gap: 1.9%;
+}
+
+.pickup-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  /* overflow: hidden; */
+}
+
+.pickup-area img {
+  width: 100%;
+  /* height: auto; */
+  aspect-ratio: 374 / 220;
+}
+
+.pickup-area h3 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.read-more-btn {
+  width: fit-content;
+  padding-bottom: 1px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 0;
+}
+
+.read-more-btn::after {
+  position: absolute; 
+  content: ""; 
+  bottom: 0px; 
+  left: 0; 
+  width: 100%; 
+  height: 1px; 
+  background: #535353; 
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  transform: translateY(0); 
+  opacity: 1; 
+}
+
+.read-more-btn:hover::after {
+  transform: translateY(3px); 
+  opacity: 0; 
+}
+
+/* メインエリア */
+#container {
+  width: 1168px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+/* メインコンテンツ */
+
+.main-content {
+  float: left;
+  width: 66.6666666%;
+}
+
+.main-content-main {
+  padding-right: 20px;
+}
+
+.article h2 {
+  margin-top: 10px;
+  margin-bottom: 15px;
+  font-size: 24px;
+}
+
+.date-and-category {
+  margin-bottom: 10px;
+}
+
+.date-and-category a {
+  width: fit-content;
+  /* padding-bottom: 1px; */
+  border-bottom: 1px solid #535353;
+}
+
+.date-and-category a:first-child {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.main-content img {
+  max-width: 100%;
+  aspect-ratio: 759 / 427;
+}
+
+.article p {
+  display: block;
+  padding: 10px 40px 30px;
+  font-size: 16px;
+}
+
+.article-next {
+  margin-top: 80px;
+}
+
+/* サイドコンテンツ */
+
+.side-content {
+  float: right;
+  width: 33.333333%;
+  max-width: 33.3333%;
+}
+
+.side-content-main {
+  padding: 20px;
+}
+
+.side-content img {
+  max-width: 100%;
+  aspect-ratio: 345.5 / 194;
+}
+
+.profile {
+  margin-bottom: 60px;
+}
+
+/* .profile {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+} */
+
+.profile img {
+  width: 130px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  margin-bottom: 30px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.profile h2,
+.ranking h2,
+.archive h2 {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.ranking {
+  margin-bottom: 60px;
+}
+
+.ranking-content {
+  margin-bottom: 30px;
+}
+
+.archive h2 {
+  margin-bottom: 30px;
+}
+
+.archive ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.archive ul li {
+  font-size: 0.875em;
+  padding: 20px;
+  border-top: 1px solid #535353;
+  transition: all .5s;
+}
+
+.archive ul li:last-child {
+  border-bottom: 1px solid #535353;
+}
+
+.archive ul li:hover {
+  background-color: #e8e8e8;
+}
+
+/* フッター */
+
+footer {
+  width: 100%;
+  min-width: fit-content;
+  background-color: #f7f7f7;
+}
+
+.footer-area {
+  width: 1168px;
+  max-width: 1200px;
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 50px 16px;
+  padding-bottom: 30px;
+}
+
+.footer-area-main {
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+.about,
+.menu,
+.twitter {
+  flex-grow: 1;
+  width: 100%;
+}
+
+.about h2 {
+  margin-bottom: 30px;
+}
+
+.about ul {
+  padding-left: 0;
+  margin: 20px 0px;
+  width: fit-content;
+}
+
+.about ul a {
+  line-height: 1.6rem;
+}
+
+.about ul li a:hover {
+  /* animation: flash ; */
+  /* transform: translateX(5px); */
+  /* transform: rotate(30deg); */  margin-left: 7px;
+  transition: all .5s;
+}
+
+.about ul li::before {
+  content: "▶︎ ";
+}
+
+.about ul a::before:hover {
+  margin-left: 100px;
+  /* content: "▶︎&nbsp;"; */
+}
+
+.menu h2 {
+  margin-bottom: 30px;
+}
+
+.menu ul {
+  display: flex;
+  flex-direction: column;
+  padding-left: 0;
+}
+
+.menu ul li {
+  font-size: 0.875em;
+  padding: 15px;
+  border-top: 1px solid #535353;
+  transition: all .5s;
+}
+
+.menu ul li:hover {
+  background-color: #e8e8e8;
+}
+
+.menu ul li:last-child {
+  border-bottom: 1px solid #535353;
+}
+
+.twitter h2 {
+  margin-bottom: 27px;
+}
+
+.copyright {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 0px;
+  padding-bottom: 30px;
+}
+
+/* レスポンシブ */
+
+.header-content-sp {
+  display: none;
+}
+
+.twitter-link-area-tab {
+  display: none;
+}
+
+.twitter-link-area-sp {
+  display: none;
+}
+
+.twitter-link-area-sp2 {
+  display: none;
+}
+
+.twitter-link-area-sp3 {
+  display: none;
+}
+
+/* タブレット用 */
+@media  screen and (max-width:1200px) {
+  .logo-img {
+  padding-left: 16px;
+  }
+  .dropdown-menu {
+    width: calc(100%-20px);
+    max-width: none;
+    padding-left: 20px;
+    transition: all .7s ease;
+  }
+  /* メイン */
+    .main-area {
+      width: auto;
+      max-width: none;
+      overflow: hidden;
+    }
+    .pickup-area {
+      width: auto;
+      max-width: none;
+    }
+    #container {
+    width: auto;
+    }
+    /* フッター */
+    .footer-area {
+      width: auto;
+      max-width: none;
+    }
+}
+
+@media  screen and (max-width:1050px) {
+  .twitter-link-area {
+    display: none;
+  }
+  .twitter-link-area-tab {
+    display: initial;
+  }
+}
+
+/* SP用 */
+@media  screen and (max-width:768px) {
+  /* ヘッダー */
+  .menu-area {
+    justify-content: flex-start;
+  }
+  .menu-area ul {
+    width: auto;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+    padding-right: 0;
+    padding-left: 20px;
+  }
+  /* メイン */
+  /* ピックアップエリア */
+  .pickup-area {
+    flex-direction: column;
+    gap: 35px;
+    padding-top: 135px;
+  }
+  /* メインエリア */
+  .main-content {
+    float: none;
+    width: auto;
+  }
+  .main-content-main {
+    padding-right: 0;
+  }
+  /* サブエリア */
+  .side-content {
+    float: none;
+    width: auto;
+    max-width: none;
+  }
+  .side-content-main {
+    padding: 0;
+    margin-top: 70px;
+  }
+  .archive ul {
+    padding: 0;
+  }
+
+  /* フッター */
+  .footer-area-main {
+    flex-direction: column;
+  }
+  .twitter-link-area-tab {
+    display: none;
+  }
+  .twitter-link-area-sp {
+    display: initial;
+    display: flex;
+    justify-content: center;
+  }
+  /* .twitter-link-area-sp a {
+    display: inline-block;
+    width: 10%;
+  } */
+}
+
+@media  screen and (max-width:635px) {
+  .header-content {
+    display: none;
+  }
+  /* ハンバーガーメニュー */
+  .header-content-sp {
+    display: initial;
+    /* position: relative; */
+    position: fixed;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: #fff;
+    z-index: 100;
+  }
+   .logo-area {
+    position: static;
+   }
+  .hamburger-menu {
+    width: 50px;
+    height: 50px;
+    /* height: 70px; */
+    position: fixed;
+    border: none;
+    background: #fff;
+    background: transparent;
+    appearance: none;
+    padding: 0;
+    cursor: pointer;
+    z-index: 100;
+    right: 6px;
+  }
+  .hamburger-menu.hamburger-menu--open {
+    /* background-color: transparent; */
+  }
+  .hamburger-menu__bar {
+    display: inline-block;
+    width: 44%;
+    height: 1px;
+    background: #535353;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: .7s;
+  }
+  .hamburger-menu__bar:first-child {
+    top: 16px;
+  }
+  .hamburger-menu__bar:nth-child(2) {
+    top: 24px;
+  }
+  .hamburger-menu__bar:last-child {
+    top: 32px;
+  }
+  .hamburger-menu--open .hamburger-menu__bar {
+    top: 50%;
+    background-color: #fff;
+  }
+  .hamburger-menu--open .hamburger-menu__bar:first-child {
+    transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  }
+  .hamburger-menu--open .hamburger-menu__bar:last-child {
+    transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+  }
+  .hamburger-menu--open .hamburger-menu__bar:nth-child(2) {
+    display: none;
+  }
+  .navigation {
+    display: none;
+    /* display: inline-block; */
+    /* opacity: 0; */
+    background: #535353;
+    position: absolute;
+    top: 70px;
+    top: 0px;
+    width: 100%;
+    /* height: calc(100vh - 70px); */
+    height: 100vh;
+    z-index: 99;
+  }
+  .navigation__list {
+    /* text-align: center; */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    top: 100px;
+    left: 100px;
+  }
+  .navigation__list-item {
+    /* border-bottom: solid 1px #474747; */
+  }
+  .navigation__list-item:first-child {
+    /* border-top: solid 1px #474747; */
+  }
+  .navigation__link {
+    color: #fff;
+    /* font-weight: 700; */
+    text-decoration: none;
+    display: inline-block;
+    opacity: 1;
+    padding: 4px 0;
+    margin: 15px 0;
+    transition: 5s;
+    border-bottom: solid 1px #fff;
+    font-size: 16px;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .navigation__link:hover {
+      background: #333;
+    }
+  }
+
+  /* メイン */
+  .pickup-area {
+    padding-top: 70px;
+  }
+
+  /* フッター */
+  .twitter-link-area-sp {
+    display: none;
+  }
+  .twitter-link-area-sp2 {
+    display: initial;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+
+
+@media  screen and (max-width:435px) {
+  /* フッター */
+  .twitter-link-area-sp2 {
+    display: none;
+  }
+  .twitter-link-area-sp3 {
+    display: initial;
+    display: flex;
+    justify-content: center;
+  }
+  .navigation__list {
+    left: 75px;
+  }
+}
